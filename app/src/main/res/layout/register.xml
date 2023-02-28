@@ -9,7 +9,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="550dp"
         android:background="@drawable/border"
         android:orientation="vertical"
         android:paddingLeft="55dp"
@@ -18,10 +18,10 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:layout_marginTop="30dp"
             android:id="@+id/tvEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:text="Your name"
             android:textStyle="bold" />
 
@@ -97,7 +97,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tvSignUp"
+        android:id="@+id/text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign up"
@@ -115,10 +115,11 @@
         android:id="@+id/tvArrowBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableStart="@drawable/arrow_back"
+        android:drawableStart="@drawable/arrow_circle"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toStartOf="@+id/text_view"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
