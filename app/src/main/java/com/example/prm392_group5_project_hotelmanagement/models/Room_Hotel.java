@@ -18,6 +18,9 @@ public class Room_Hotel {
     @ColumnInfo(name = "room_bed")
     private int room_bed;
 
+    @ColumnInfo(name = "room_desc")
+    private int room_desc;
+
     @ColumnInfo(name = "room_price")
     private double room_price;
 
@@ -30,11 +33,12 @@ public class Room_Hotel {
     public Room_Hotel() {
     }
 
-    public Room_Hotel(int room_id, String room_name, String room_image, int room_bed, double room_price, int room_status, int type_id) {
+    public Room_Hotel(int room_id, String room_name, String room_image, int room_bed, int room_desc, double room_price, int room_status, int type_id) {
         this.room_id = room_id;
         this.room_name = room_name;
         this.room_image = room_image;
         this.room_bed = room_bed;
+        this.room_desc = room_desc;
         this.room_price = room_price;
         this.room_status = room_status;
         this.type_id = type_id;
@@ -70,6 +74,14 @@ public class Room_Hotel {
 
     public void setRoom_bed(int room_bed) {
         this.room_bed = room_bed;
+    }
+
+    public int getRoom_desc() {
+        return room_desc;
+    }
+
+    public void setRoom_desc(int room_desc) {
+        this.room_desc = room_desc;
     }
 
     public double getRoom_price() {
