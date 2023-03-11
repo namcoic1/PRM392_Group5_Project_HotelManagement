@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
-        // Run to start App Inspection
+        // Run to start App Inspection 111
         AppDatabase.getInstance(this).type_roomDao().getAll();
     }
 
