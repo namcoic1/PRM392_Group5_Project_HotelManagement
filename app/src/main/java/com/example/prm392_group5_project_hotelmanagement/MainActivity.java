@@ -1,6 +1,5 @@
 package com.example.prm392_group5_project_hotelmanagement;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -17,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
-        // Run to start App Inspection 111
+        // Run to start App Inspection
         AppDatabase.getInstance(this).type_roomDao().getAll();
     }
 
