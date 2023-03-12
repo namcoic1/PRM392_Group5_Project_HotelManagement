@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">PRM392_Group5_Project_HotelManagement</string>
-    <string name="image_logo_description">Logo Hotel</string>
+    <string name="hint_enter_phone"><i>Enter your phone here</i></string>
+    <string name="hint_enter_password"><i>Enter your password here</i></string>
+    <string name="hint_re_enter_password"><i>Re-enter your password here</i></string>
+    <string name="hint_enter_name"><i>Enter your name here</i></string>
 </resources>

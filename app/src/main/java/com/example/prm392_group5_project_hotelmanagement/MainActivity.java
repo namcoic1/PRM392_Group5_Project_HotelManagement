@@ -1,7 +1,10 @@
 package com.example.prm392_group5_project_hotelmanagement;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+
+import com.example.prm392_group5_project_hotelmanagement.connections.AppDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -9,5 +12,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Run to start App Inspection
+        AppDatabase.getInstance(this).type_roomDao().getAll();
     }
+
 }
