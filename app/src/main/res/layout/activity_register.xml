@@ -134,7 +134,7 @@
             android:text="Register" />
 
         <TextView
-            android:id="@+id/tvHaveAccount"
+            android:id="@+id/tvAnyAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Already have any account? Sign in"

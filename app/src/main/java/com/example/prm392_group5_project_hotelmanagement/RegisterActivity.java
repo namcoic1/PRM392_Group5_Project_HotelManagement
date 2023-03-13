@@ -22,11 +22,13 @@ import com.example.prm392_group5_project_hotelmanagement.models.User;
 public class RegisterActivity extends AppCompatActivity {
     private EditText txtName ,txtPhone, txtPassword, txtRePassword;
     private Button btnRegister;
+    private TextView tvArrowBack, tvSignIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
         initUi();
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
@@ -44,10 +46,10 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void register() {
-        String strName = txtName.getText().toString();
-        String strPhone = txtPhone.getText().toString();
-        String strPassword = txtPassword.getText().toString();
-        String strRePassword = txtRePassword.getText().toString();
+        String strName = txtName.getText().toString().trim();
+        String strPhone = txtPhone.getText().toString().trim();
+        String strPassword = txtPassword.getText().toString().trim();
+        String strRePassword = txtRePassword.getText().toString().trim();
 
         if(strName.isEmpty() || strRePassword.isEmpty()) {
             Toast.makeText(RegisterActivity.this,"Error input. Please re-check your input",Toast.LENGTH_LONG).show();
@@ -63,11 +65,12 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(RegisterActivity.this,"Your password is not matched. Please re-check your input",Toast.LENGTH_LONG).show();
             return;
         }
-
+        //Register successful
         AppDatabase.getInstance(this).userDao().register(strPhone,strPassword,strName);
         Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
         intent.putExtra("Register","Successful");
         startActivity(intent);
+        finish();
     }
 
     private void initUi(){
@@ -77,33 +80,36 @@ public class RegisterActivity extends AppCompatActivity {
         txtRePassword = findViewById(R.id.txtRePassword);
 
         btnRegister = findViewById(R.id.btnRegister);
+        tvArrowBack = findViewById(R.id.tvArrowBack);
+        tvSignIn = findViewById(R.id.tvAnyAccount);
     }
 
     private void arrowBackClick() {
-        ((TextView)findViewById(R.id.tvArrowBack)).setOnClickListener(new View.OnClickListener() {
+        tvArrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
 
     private void signInClick() {
-        TextView textView = findViewById(R.id.tvHaveAccount);
-        String text = "Already have any account? Sign in";
-
+        String text = tvSignIn.getText().toString();
         SpannableString ss = new SpannableString(text);
+
         ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View widget) {
                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         };
 
         ss.setSpan(clickableSpan,26,33, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        textView.setText(ss);
-        textView.setMovementMethod(LinkMovementMethod.getInstance());
+        tvSignIn.setText(ss);
+        tvSignIn.setMovementMethod(LinkMovementMethod.getInstance());
     }
 }
